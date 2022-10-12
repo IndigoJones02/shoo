@@ -1,4 +1,6 @@
 import "mapbox-gl/dist/mapbox-gl.css";
+import styled from "styled-components";
+import Footer from "./Footer";
 import Map, {
   Marker,
   NavigationControl,
@@ -12,7 +14,7 @@ function MapNavigation() {
 
 
   return (
-    <div className="App">
+    <Container>
       <Map
       mapboxAccessToken={"pk.eyJ1IjoiaWowMiIsImEiOiJjbDhjNDM1c2YwMzU4M3Btd2NncmJueW9pIn0.InR775LunpY_M4ZlYA6Etg"}
       style={{
@@ -27,12 +29,25 @@ function MapNavigation() {
       >
         <Marker longitude={lng} latitude={lat} />
         <NavigationControl position="bottom-right" />
-        <FullscreenControl />
+        <FullscreenControl position="bottom-left"/>
 
-        <GeolocateControl />
+        <GeolocateControl position="bottom-left"/>
+        
       </Map>
-    </div>
+      {/* <Footer/> */}
+    </Container>
   );
 }
+
+const Container = styled.section`
+overflow: hidden;
+display: flex;
+flex-direction: column;
+text-align: center;
+height: 100vh;
+
+
+`;
+
 
 export default MapNavigation;

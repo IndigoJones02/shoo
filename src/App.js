@@ -1,11 +1,14 @@
 import "./App.css";
 import MapNavigation from "./components/Map";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
 
 return <div>
-  <h1>Search for Home Page</h1>
+  <Header/>
 <MapNavigation />
+<Footer/>
 </div>
 }
 
