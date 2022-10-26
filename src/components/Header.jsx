@@ -6,7 +6,7 @@ import {Triangle} from 'react-awesome-shapes';
 import MapSearch from "./MapSearch";
 
 
-const Header = (props) => {
+const Header = (setPreferredLocation) => {
    
     return( 
 
@@ -15,7 +15,7 @@ const Header = (props) => {
         <Logo><img src='/images/kick-off.png' alt="shoo"></img></Logo>
         <Shoo>SHOO|</Shoo>
         {/* <SearchBar placeholder='Location, Address, Zip Code.....' type='text'/> */}
-        <MapSearch/>
+        <MapSearch setPreferredLocation={setPreferredLocation}/>
         
         
         </Nav>

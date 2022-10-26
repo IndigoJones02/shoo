@@ -5,8 +5,8 @@
 
 const distance = (lat1, lng1, lat2, lng2) => {
         // Transforming the degrees into Radians
-        lng1 = lon1 * Math.PI / 180;
-        lng2 = lon2 * Math.PI / 180;
+        lng1 = lng1 * Math.PI / 180;
+        lng2 = lng2 * Math.PI / 180;
         lat1 = lat1 * Math.PI / 180;
         lat2 = lat2 * Math.PI / 180;
 

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import useInput from './UseInputs';
 
 
-
-export default function MapSearch() {
+export default function MapSearch(setPreferredLocation) {
     const address = useInput("")
 
 
@@ -13,11 +12,15 @@ export default function MapSearch() {
     <SearchBar placeholder='Location, Address, Zip Code.....' {...address} isTyping=
     {address.value !== ""}/>
     {address.suggestions?.length > 0 && (
-        <SuggestionsWrapper>{address.suggestions.map((suggestions, index) =>{
+        <SuggestionsWrapper>{address.suggestions.map((suggestion, index) =>{
             return<Suggestions key={index} onClick={()=> {
-                address.setValue(suggestions.place_name);
+                address.setValue(suggestion.place_name);
                 address.setSuggestions([]);
-            }}>{Place(suggestions.place_name)}</Suggestions>
+                setPreferredLocation(suggestion);
+                
+                
+
+            }}>{suggestion.place_name}</Suggestions>
         }
         )}</SuggestionsWrapper>
     )}
@@ -28,10 +31,6 @@ export default function MapSearch() {
 
 };
 
-export const Place = (name) => {
-    let place_name = name;
-    return place_name;
-}
 
 const Wrapper = styled.div`
 

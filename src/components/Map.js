@@ -9,16 +9,20 @@ import Map, {
   GeolocateControl,
 } from "react-map-gl";
 import { useState } from "react";
+import MarkersGalore from "./Markers";
 function MapNavigation() {
   const [lng, setLng] = useState(-75.6903);
   const [lat, setLat] = useState( 45.4211,);
+  const [preferredLocation, setPreferredLocation] = useState('')
 
 
   return (
     <Container>
-      <Header/>
+      <Header setPreferredLocation={setPreferredLocation}/>
+      <MarkersGalore preferredLocation={preferredLocation} />
 
-      <Map
+
+      {/* <Map
       mapboxAccessToken={"pk.eyJ1IjoiaWowMiIsImEiOiJjbDhjNDM1c2YwMzU4M3Btd2NncmJueW9pIn0.InR775LunpY_M4ZlYA6Etg"}
       style={{
         width: window.innerWidth,
@@ -41,7 +45,7 @@ function MapNavigation() {
 
         <GeolocateControl position="bottom-left"/>
         
-      </Map>
+      </Map> */}
       <Footer/>
     </Container>
   );
