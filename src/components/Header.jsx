@@ -1,13 +1,13 @@
 import styled from "styled-components";
 // import { auth, provider } from "../firebase";
 // eslint-disable-next-line
-import React, { component }  from 'react';
+import React, { useState }  from 'react';
 import {Triangle} from 'react-awesome-shapes';
 import MapSearch from "./MapSearch";
 
 
-const Header = (setPreferredLocation) => {
-   
+const Header = ({setPreferredLocation}) => {
+
     return( 
 
     <Nav>
@@ -15,7 +15,8 @@ const Header = (setPreferredLocation) => {
         <Logo><img src='/images/kick-off.png' alt="shoo"></img></Logo>
         <Shoo>SHOO|</Shoo>
         {/* <SearchBar placeholder='Location, Address, Zip Code.....' type='text'/> */}
-        <MapSearch setPreferredLocation={setPreferredLocation}/>
+        <MapSearch setPreferredLocation={setPreferredLocation}></MapSearch>
+         
         
         
         </Nav>

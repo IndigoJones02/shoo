@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import useInput from './UseInputs';
 
 
-export default function MapSearch(setPreferredLocation) {
+export default function MapSearch({setPreferredLocation}) {
     const address = useInput("")
 
 
