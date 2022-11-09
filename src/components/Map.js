@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
 // import useRentals from "./UseRentals";
-import Marks from './Marks';
+// import Marks from './Marks';
 import Map, {
   Marker,
   NavigationControl,
@@ -11,14 +11,117 @@ import Map, {
   GeolocateControl,
 } from "react-map-gl";
 import { useState } from "react";
-import MarkersGalore from "./Markers";
-import MapSearch from "./MapSearch";
+// import MarkersGalore from "./Markers";
+// import MapSearch from "./MapSearch";
 function MapNavigation() {
   const [lng, setLng] = useState(-75.6903);
   const [lat, setLat] = useState( 45.4211,);
   const [preferredLocation, setPreferredLocation] = useState('')
-  let locations = useRentals(preferredLocation);
-
+  // let locations = useRentals(preferredLocation);
+  const data = {
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lincoln Park",
+          "description": "A northside park that is home to the Lincoln Park Zoo"
+        },
+        "geometry": {
+          "coordinates": [-87.637596, 41.940403],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Burnham Park",
+          "description": "A lakefront park on Chicago's south side"
+        },
+        "geometry": {
+          "coordinates": [-87.603735, 41.829985],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Millennium Park",
+          "description": "A downtown park known for its art installations and unique architecture"
+        },
+        "geometry": {
+          "coordinates": [-87.622554, 41.882534],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Grant Park",
+          "description": "A downtown park that is the site of many of Chicago's favorite festivals and events"
+        },
+        "geometry": {
+          "coordinates": [-87.619185, 41.876367],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Humboldt Park",
+          "description": "A large park on Chicago's northwest side"
+        },
+        "geometry": {
+          "coordinates": [-87.70199, 41.905423],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Douglas Park",
+          "description": "A large park near in Chicago's North Lawndale neighborhood"
+        },
+        "geometry": {
+          "coordinates": [-87.699329, 41.860092],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Calumet Park",
+          "description": "A park on the Illinois-Indiana border featuring a historic fieldhouse"
+        },
+        "geometry": {
+          "coordinates": [-87.530221, 41.715515],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jackson Park",
+          "description": "A lakeside park that was the site of the 1893 World's Fair"
+        },
+        "geometry": {
+          "coordinates": [-87.580389, 41.783185],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Columbus Park",
+          "description": "A large park in Chicago's Austin neighborhood"
+        },
+        "geometry": {
+          "coordinates": [-87.769775, 41.873683],
+          "type": "Point"
+        }
+      }
+    ],
+    "type": "FeatureCollection"
+  }
 
   return (
     <Container>
@@ -40,19 +143,18 @@ function MapNavigation() {
       }}
       mapStyle="mapbox://styles/ij02/cl8c3au5r002f15qml3t1q07h"
       >
-        {/* {
+        {
         // let locations = useRentals(preferredLocation);
-        locations.zillow.map((coordinate, index)=> {
+        data.features.map((feature, index)=> {
           
           return(
         <Marker key={index} 
-        longitude={coordinate[0]} 
-        latitude={coordinate[1]}
+        longitude={feature.geometry.coordinates[0]} 
+        latitude={feature.geometry.coordinates[1]}
         draggable
         onDragEnd={(e)=> dispatchEvent({type:'UPDATE_LOCATION', payload:{lng:e.lngLat.lng, lat:e.lngLat.lat}})}
          />
-         ) })} */}
-         <Marks preferredLocation={preferredLocation} />
+         ) })}
         <NavigationControl position="bottom-right" />
         <FullscreenControl position="bottom-left"/>
 
