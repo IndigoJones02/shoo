@@ -143,8 +143,16 @@ function MapNavigation() {
       }}
       mapStyle="mapbox://styles/ij02/cl8c3au5r002f15qml3t1q07h"
       >
-        {
+
+<Marker
+        longitude={preferredLocation.feature.geometry.coordinates[0]} 
+        latitude={preferredLocation.feature.geometry.coordinates[1]}
+        draggable
+        onDragEnd={(e)=> dispatchEvent({type:'UPDATE_LOCATION', payload:{lng:e.lngLat.lng, lat:e.lngLat.lat}})}
+         />
+        {/* {
         // let locations = useRentals(preferredLocation);
+        // This works....
         data.features.map((feature, index)=> {
           
           return(
@@ -154,7 +162,7 @@ function MapNavigation() {
         draggable
         onDragEnd={(e)=> dispatchEvent({type:'UPDATE_LOCATION', payload:{lng:e.lngLat.lng, lat:e.lngLat.lat}})}
          />
-         ) })}
+         ) })} */}
         <NavigationControl position="bottom-right" />
         <FullscreenControl position="bottom-left"/>
 
